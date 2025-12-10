@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="{{ url_for('static', filename='output.css') }}" rel="stylesheet" />
+    <title>Hadoop Frequency Count</title>
+  </head>
+  <body class="bg-[#0e1117] h-full min-h-screen text-white flex flex-col">
+    <div class="flex flex-col ms-7 mt-7 md:flex-row items-start md:items-center">
+      <a class="text-sm link link-animated" href="{{ url_for('index') }}">← Kembali</a>
+    </div>
+    <div class="flex justify-center mt-8">
+      <p class="text-3xl text-center font-semibold mb-10">Hitung Frekuensi Huruf</p>
+    </div>
+    <div class="flex justify-center gap-34 w-full mt-8 mb-14">
+      <div class="max-w-md">
+        <form method="POST">
+          <textarea name="teks" class="textarea w-md h-30 bg-[#0e1117]" placeholder="Masukkan teks di sini...">{{ teks }}</textarea>
+          <button class="btn btn-soft btn-accent h-8 mt-2" type="submit">Hitung</button>
+        </form>
+      </div>
+
+      <div class="min-w-34">
+        <h3 class="flex">
+          <span class="mr-2 text-xl">Hasil:</span>
+          {% if hasil %}
+          <div class="flex flex-col ms-8">
+            {% for huruf, jumlah in hasil.items() %} {% if loop.first %}
+            <span>{{ huruf }}: {{ jumlah }}</span>
+            {% else %}
+            <span class="">{{ huruf }}: {{ jumlah }}</span>
+            {% endif %} {% endfor %}
+          </div>
+          {% endif %}
+        </h3>
+        
+      </div>
+    </div>
+  </body>
+  <script src="{{ url_for('static', filename='flyonui.js') }}"></script>
+</html>

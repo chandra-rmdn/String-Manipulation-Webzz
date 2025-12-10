@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="{{ url_for('static', filename='output.css') }}" rel="stylesheet" />
+    <title>Hadoop Frequency Count</title>
+  </head>
+  <body class="bg-[#0e1117] h-full min-h-screen text-white flex flex-col">
+    <div class="flex flex-col ms-7 mt-7 md:flex-row items-start md:items-center">
+      <a class="text-sm link link-animated" href="{{ url_for('index') }}">← Kembali</a>
+    </div>
+    <div class="flex justify-center mt-8">
+      <div class="w-xl max-w-lg">
+        <h1 class="text-3xl font-semibold mb-10 text-center">Palindrome Similarity</h1>
+        <form method="POST" class="flex flex-col gap-3">
+          <textarea name="teks" class="textarea h-30 bg-[#0e1117]" placeholder="Masukkan teks di sini...">{{ teks }}</textarea>
+          <button class="btn btn-soft btn-accent w-36 h-8 mt-2" type="submit">Cek</button>
+        </form>
+
+        {% if hasil is not none %}
+        <div class="mt-6">
+          <p><b>Teks:</b> {{ cleaned }}</p>
+          <p class="mt-2"><b>Similarity:</b> {{ hasil }}%</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+  <script src="{{ url_for('static', filename='flyonui.js') }}"></script>
+</html>

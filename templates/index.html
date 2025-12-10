@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="{{ url_for('static', filename='output.css') }}" rel="stylesheet" />
+    <title>Hadoop Frequency Count</title>
+  </head>
+  <body class="bg-[#0e1117] h-full min-h-screen text-white flex flex-col">
+    <p class="text-4xl text-center font-semibold mt-18">String Manipulation</p>
+    <div class="flex justify-center gap-10 mt-14">
+      <a href="{{ url_for('hitung_freq') }}">
+        <button class="btn btn-outline btn-primary w-65 h-40 text-2xl rounded-4xl">Hitung Frekuensi Huruf</button>
+      </a>
+      <a href="{{ url_for('palindrome_checker') }}">
+        <button class="btn btn-outline btn-primary w-65 h-40 text-2xl rounded-4xl">Palindrome Checker</button>
+      </a>
+      <a href="{{ url_for('transformasi_kata') }}">
+        <button class="btn btn-outline btn-primary w-65 h-40 text-2xl rounded-4xl">Transformasi Kata</button>
+      </a>
+    </div>
+    <script src="{{ url_for('static', filename='flyonui.js') }}"></script>
+  </body>
+</html>
